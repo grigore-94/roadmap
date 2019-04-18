@@ -18,8 +18,6 @@ public class MyPrinter {
 
     private Printer printerSetter;
 
-    @Autowired
-    private PrinterBean printerBean;
 
     MyPrinter(@Qualifier("printConstructor") Printer printer) {
         this.printerConstructor = printer;
@@ -47,10 +45,4 @@ public class MyPrinter {
     public void printSetter() {
         this.printerSetter.print();
     }
-
-
-    public void printBean() {
-        this.printerBean.print();
-    }
-
 }

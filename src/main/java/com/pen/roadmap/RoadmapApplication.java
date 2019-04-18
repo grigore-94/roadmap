@@ -11,8 +11,6 @@ import java.util.stream.IntStream;
 @SpringBootApplication
 public class RoadmapApplication implements CommandLineRunner {
 
-	@Autowired
-	MyPrinter myPrinter;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RoadmapApplication.class, args);
