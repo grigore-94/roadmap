@@ -1,5 +1,7 @@
 package com.pen.roadmap.business.dto;
 
+import com.pen.roadmap.Validation.EntityExistConstraint;
+import com.pen.roadmap.repository.entity.Author;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,4 +26,7 @@ public class AuthorDto {
     @NotNull
     @Size(max = 255)
     private String password;
+
+    @EntityExistConstraint(className = Author.class)
+    private Long relationEntityId;
 }

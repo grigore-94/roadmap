@@ -17,5 +17,5 @@ public class Answer extends EntityDescription{
     private Question question;
 
     @OneToMany(mappedBy = "answer", fetch = FetchType.LAZY)
-    private List<Comment> comments;
+    private List<CommentAnswer> comments;
 }

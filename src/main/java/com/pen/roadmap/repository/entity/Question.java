@@ -16,11 +16,10 @@ import java.util.List;
 @Table(name = "question")
 public class Question extends EntityDescription {
 
-
     private String title;
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
-    private List<Comment> comments = new ArrayList<>();
+    private List<CommentQuestion> comments = new ArrayList<>();
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
     private List<Answer> answers = new ArrayList<>();
