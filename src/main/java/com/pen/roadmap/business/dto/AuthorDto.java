@@ -26,7 +26,4 @@ public class AuthorDto {
     @NotNull
     @Size(max = 255)
     private String password;
-
-    @EntityExistConstraint(className = Author.class)
-    private Long relationEntityId;
 }

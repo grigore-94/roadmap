@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.Instant;
 
 @Getter
 @Setter
@@ -23,9 +23,14 @@ public abstract class EntityDescription {
 
     @CreatedDate
     @Column(name = "created_at", nullable = false, updatable = false)
-    private Date createdAt;
+    private Instant createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = Instant.now();
+    }
 }

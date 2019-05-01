@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Pageable;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,8 +20,8 @@ public class AuthorController {
     private final AuthorBusiness business;
 
     @GetMapping
-    public List<AuthorDto> retrieve(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size) {
-        return business.retrieve(page, size);
+    public List<AuthorDto> retrieve(Pageable pageable) {
+        return business.retrieve(pageable);
     }
 
     @PostMapping

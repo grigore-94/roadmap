@@ -1,9 +1,7 @@
 package com.pen.roadmap.Validation;
 
 import com.pen.roadmap.business.generic.GenericRepository;
-import com.pen.roadmap.repository.entity.Author;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.context.WebApplicationContext;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

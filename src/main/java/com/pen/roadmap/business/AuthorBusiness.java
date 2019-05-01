@@ -3,9 +3,7 @@ package com.pen.roadmap.business;
 import com.pen.roadmap.business.converter.AuthorConverter;
 import com.pen.roadmap.business.dto.AuthorDto;
 import com.pen.roadmap.repository.AuthorRepository;
-import com.pen.roadmap.repository.entity.Author;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +17,9 @@ public class AuthorBusiness {
     private final AuthorConverter converter;
     private final AuthorRepository repository;
 
-    public List<AuthorDto> retrieve(int page, int size) {
+    public List<AuthorDto> retrieve(Pageable pageable) {
         return repository
-                .findAll(PageRequest.of(page, size))
+                .findAll(pageable)
                 .stream()
                 .map(converter::convert)
                 .collect(Collectors.toList());
