@@ -1,7 +1,7 @@
 package com.pen.roadmap.business.dto;
 
 import com.pen.roadmap.Validation.EntityExistConstraint;
-import com.pen.roadmap.repository.entity.Author;
+import com.pen.roadmap.repository.entity.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +15,6 @@ public abstract class DtoDescription {
     private int rank;
     private Instant createdAt;
 
-    @EntityExistConstraint(className = Author.class)
-    private Long authorId;
+    @EntityExistConstraint(className = User.class)
+    private Long userId;
 }

@@ -1,15 +1,15 @@
 package com.pen.roadmap.business.converter;
 
 import com.google.common.base.Converter;
-import com.pen.roadmap.business.dto.AuthorDto;
-import com.pen.roadmap.repository.entity.Author;
+import com.pen.roadmap.business.dto.UserDto;
+import com.pen.roadmap.repository.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AuthorConverter extends Converter<Author, AuthorDto> {
+public class UserConverter extends Converter<User, UserDto> {
     @Override
-    protected AuthorDto doForward(Author entity) {
-        AuthorDto dto = new AuthorDto();
+    protected UserDto doForward(User entity) {
+        UserDto dto = new UserDto();
 
         dto.setId(entity.getId());
         dto.setEmail(entity.getEmail());
@@ -20,8 +20,8 @@ public class AuthorConverter extends Converter<Author, AuthorDto> {
     }
 
     @Override
-    protected Author doBackward(AuthorDto dto) {
-        Author entity = new Author();
+    protected User doBackward(UserDto dto) {
+        User entity = new User();
 
         entity.setId(dto.getId());
         entity.setEmail(dto.getEmail());

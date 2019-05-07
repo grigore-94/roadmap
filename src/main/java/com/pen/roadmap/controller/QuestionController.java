@@ -1,8 +1,6 @@
 package com.pen.roadmap.controller;
 
-import com.pen.roadmap.business.AuthorBusiness;
 import com.pen.roadmap.business.QuestionBusiness;
-import com.pen.roadmap.business.dto.AuthorDto;
 import com.pen.roadmap.business.dto.QuestionDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;

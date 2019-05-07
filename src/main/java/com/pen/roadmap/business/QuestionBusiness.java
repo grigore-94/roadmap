@@ -2,9 +2,7 @@ package com.pen.roadmap.business;
 
 import com.pen.roadmap.business.converter.QuestionConverter;
 import com.pen.roadmap.business.dto.QuestionDto;
-import com.pen.roadmap.repository.AuthorRepository;
 import com.pen.roadmap.repository.QuestionRepository;
-import com.pen.roadmap.repository.entity.Author;
 import com.pen.roadmap.repository.entity.Question;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;

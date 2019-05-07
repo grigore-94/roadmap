@@ -1,6 +1,5 @@
 package com.pen.roadmap.business.generic;
 
-import com.pen.roadmap.repository.entity.Author;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.support.Repositories;

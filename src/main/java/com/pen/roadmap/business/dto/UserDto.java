@@ -1,7 +1,5 @@
 package com.pen.roadmap.business.dto;
 
-import com.pen.roadmap.Validation.EntityExistConstraint;
-import com.pen.roadmap.repository.entity.Author;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +9,7 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-public class AuthorDto {
+public class UserDto {
     private long id;
 
     @NotNull
