@@ -16,10 +16,7 @@ public class RetryIfExceptionAspect {
         int i = 0;
         while (i < annotation.retry() - 1) {
             try {
-
-                Object[] args = joinPoint.getArgs();
-                args[0] = "grigore";
-                return joinPoint.proceed(args);
+                return joinPoint.proceed();
             } catch (Exception e) {
                 System.out.println("exeption");// TODO to be removed
                 i++;

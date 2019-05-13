@@ -1,5 +1,6 @@
 package com.pen.roadmap.business;
 
+import com.pen.roadmap.annotation.DefaultValue;
 import com.pen.roadmap.annotation.RetryIfException;
 import com.pen.roadmap.business.converter.UserConverter;
 import com.pen.roadmap.business.dto.UserDto;
@@ -29,6 +30,9 @@ public class UserBusiness {
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
     private final AuthenticationManager authenticationManager;
+
+    @DefaultValue("some string")
+    private String someString;
 
     @RetryIfException(retry = 3)
     public String signin(String username, String password) {
