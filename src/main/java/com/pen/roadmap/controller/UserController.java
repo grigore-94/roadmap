@@ -33,12 +33,6 @@ public class UserController {
         return business.retrieve(pageable);
     }
 
-    @PostMapping
-    @Valid
-    public UserDto create(@RequestBody @Valid UserDto dto) {
-        return business.create(dto).get();
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<UserDto> get(@PathVariable Long id) {
         Optional<UserDto> author = business.get(id);
@@ -54,6 +48,7 @@ public class UserController {
     public String login(
                         @ApiParam("Username") @RequestParam String username,
                         @ApiParam("Password") @RequestParam String password) {
+
         return business.signin(username, password);
     }
 
@@ -64,7 +59,7 @@ public class UserController {
             @ApiResponse(code = 403, message = "Access denied"),
             @ApiResponse(code = 422, message = "Username is already in use"),
             @ApiResponse(code = 500, message = "Expired or invalid JWT token")})
-    public String signup(@ApiParam("Signup User") @RequestBody UserDataDto user) {
+    public String signup(@ApiParam("Signup User") @RequestBody @Valid UserDataDto user) {
         return business.signup(modelMapper.map(user, User.class));
     }
 

@@ -1,5 +1,6 @@
 package com.pen.roadmap.business;
 
+import com.pen.roadmap.annotation.RetryIfException;
 import com.pen.roadmap.business.converter.UserConverter;
 import com.pen.roadmap.business.dto.UserDto;
 import com.pen.roadmap.exception.CustomException;
@@ -7,7 +8,6 @@ import com.pen.roadmap.repository.UserRepository;
 import com.pen.roadmap.repository.entity.User;
 import com.pen.roadmap.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -30,6 +30,7 @@ public class UserBusiness {
     private final JwtTokenProvider jwtTokenProvider;
     private final AuthenticationManager authenticationManager;
 
+    @RetryIfException(retry = 3)
     public String signin(String username, String password) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
@@ -40,6 +41,7 @@ public class UserBusiness {
     }
 
     public String signup(User user) {
+        user.setEmail("ssss");
         if (!repository.existsByUsername(user.getUsername())) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             repository.save(user);
